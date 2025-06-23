@@ -215,8 +215,16 @@ void iniciarJogo(JKSButton &b) {
   Serial.println(nivel);
 
   exibirStatus();
-  tabela1();            
-  desenharLabirinto();  
+
+  if (nivel == 1) {
+    tabela1();
+  } else if (nivel == 2) {
+    tabela2();
+  } else if (nivel == 3) {
+    tabela3();
+  }
+
+  desenharLabirinto();
 
   botaoReset.init(&tela, &touch, 100, 60, 100, 40, TFT_WHITE, TFT_RED, TFT_BLACK, "RESET", 2);
   botaoMenu.init(&tela, &touch, 220, 60, 100, 40, TFT_WHITE, TFT_BLUE, TFT_BLACK, "MENU", 2);
@@ -317,6 +325,55 @@ void tabela1() {
    labirinto[2][2] = 5;
 
 }
+
+void tabela2() {
+  for (int i = 0; i < MATRIZ_TAM; i++) {
+    for (int j = 0; j < MATRIZ_TAM; j++) {
+      if (i == 0 || i == 9 || j == 0 || j == 9) {
+        labirinto[i][j] = 9;
+      } else {
+        labirinto[i][j] = 0;
+      }
+    }
+  }
+
+  // Pac-Man
+  labirinto[8][1] = 3;
+
+  // Fantasmas
+  labirinto[4][4] = 2;
+  labirinto[3][6] = 4;
+
+  // Frutas
+  labirinto[2][2] = 5;
+  labirinto[6][3] = 5;
+  labirinto[7][7] = 5;
+}
+
+void tabela3() {
+  for (int i = 0; i < MATRIZ_TAM; i++) {
+    for (int j = 0; j < MATRIZ_TAM; j++) {
+      if (i == 0 || i == 9 || j == 0 || j == 9) {
+        labirinto[i][j] = 9;
+      } else {
+        labirinto[i][j] = 0;
+      }
+    }
+  }
+
+  // Pac-Man
+  labirinto[1][1] = 3;
+
+  // Fantasmas em diagonal
+  labirinto[2][2] = 2;
+  labirinto[3][3] = 4;
+
+  // Frutas mais espalhadas
+  labirinto[6][6] = 5;
+  labirinto[4][7] = 5;
+  labirinto[2][5] = 5;
+}
+
 
 bool todosPontosComidos() {
   for (int i = 1; i < MATRIZ_TAM - 1; i++) {
