@@ -65,6 +65,6 @@ A estrutura é composta por uma base de madeira com os LEDs, sobre a qual está 
 
 Para melhor compreensão do funcionamento e da integração entre as três vertentes do projeto, será disponibilizado um **vídeo demonstrativo**, no qual apresentamos o sistema em funcionamento, destacando os principais mecanismos implementados.
 
-![Diagrama](images/Schematics-projeto-labirinto.png)
+![Diagrama](imagens/Schematics-projeto-labirinto.png)
 
 📎 _[(https://www.youtube.com/watch?v=202jqDJVHeo)]_
